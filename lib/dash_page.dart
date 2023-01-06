@@ -95,10 +95,66 @@ class _DashPageState extends State<DashPage> {
             // transaksiii
             Padding(
               padding: const EdgeInsets.all(16),
-              child: Text("Transaksi", style: GoogleFonts.montserrat(fontSize: 16, fontWeight: FontWeight.bold)),
-            )
+              child: Text("Transaksi", 
+              style: GoogleFonts.montserrat(fontSize: 16, fontWeight: FontWeight.bold)),
+            ),
 
             // list trans
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Card(
+                elevation: 10,
+                child: ListTile(
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.delete_rounded),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(Icons.edit_outlined)
+                    ],
+                  ),
+                  title: Text("Rp. 20.000"),
+                  subtitle: Text("Jajan"),
+                  leading: Container(
+                            child: Icon(Icons.upload_rounded, color: Colors.red),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8)
+                            ),
+                          ),
+                ),
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Card(
+                elevation: 10,
+                child: ListTile(
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.delete_rounded),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(Icons.edit_outlined)
+                    ],
+                  ),
+                  title: Text("Rp. 2.000.000"),
+                  subtitle: Text("Gaji"),
+                  leading: Container(
+                            child: Icon(Icons.upload_rounded, color: Colors.green),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8)
+                            ),
+                          ),
+                ),
+              ),
+            )
 
           ],
         )
