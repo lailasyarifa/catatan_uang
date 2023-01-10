@@ -1,0 +1,39 @@
+{
+  "AppDb": {
+    "id": {
+      "library_uri": "package:catatan_uang/models/database.dart",
+      "name": "AppDb"
+    },
+    "declaration": {
+      "source_uri": "package:catatan_uang/models/database.dart",
+      "offset": 518,
+      "name": "AppDb"
+    },
+    "references": [
+      {
+        "library_uri": "package:catatan_uang/models/kategori.dart",
+        "name": "categories"
+      },
+      {
+        "library_uri": "package:catatan_uang/models/transaksi.dart",
+        "name": "transactions"
+      }
+    ],
+    "type": "database",
+    "tables": [
+      {
+        "library_uri": "package:catatan_uang/models/kategori.dart",
+        "name": "categories"
+      },
+      {
+        "library_uri": "package:catatan_uang/models/transaksi.dart",
+        "name": "transactions"
+      }
+    ],
+    "views": [],
+    "includes": [],
+    "queries": [],
+    "schema_version": 1,
+    "daos": []
+  }
+}

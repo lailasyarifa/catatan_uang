@@ -1,5 +1,6 @@
 import 'package:calendar_appbar/calendar_appbar.dart';
 import 'package:catatan_uang/dash_page.dart';
+import 'package:catatan_uang/transaksi_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -48,7 +49,17 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: Visibility(
         visible: (currentIndex == 0) ? true : false,
       child: FloatingActionButton(
-        onPressed: () {}, 
+        onPressed: () {
+          Navigator.of(context)
+          .push(MaterialPageRoute(
+            builder: (context) => TransaksiPage(),
+            ))
+            .then((value) {
+              setState(() {
+                
+              });
+            });
+        }, 
       backgroundColor: Color(0xff91deef), 
       child: Icon(Icons.add),
       ),

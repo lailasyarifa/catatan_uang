@@ -1,3 +1,4 @@
+import 'package:catatan_uang/models/database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -13,6 +14,21 @@ class CategoryPage extends StatefulWidget {
 
 class _CategoryPageState extends State<CategoryPage> {
   bool isExpense = true;
+  final AppDb database = AppDb();
+  TextEditingController categoryNameController = TextEditingController();
+
+  Future insert(String nama, int type) async {
+    DateTime now = DateTime.now();
+    final row = await database.into(database.categories).insertReturning(
+      CategoriesCompanion.insert(
+      nama: nama, type: type, createdAt: now, updatedAt: now));
+
+    print(row);
+  }
+
+  Future<List<Kategori>> getAllCategory(int type) async {
+    return await database.getAllCategoryRepo(type);
+  }
 
   void openDialog() {
     showDialog(
@@ -31,11 +47,20 @@ class _CategoryPageState extends State<CategoryPage> {
                   height: 10,
                 ),
                 TextFormField(
+                  controller: categoryNameController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(), hintText: "Nama"
                   ),
                 ),
-                ElevatedButton(onPressed: () {}, 
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(onPressed: () {
+                  insert(categoryNameController.text, isExpense ? 2 : 1);
+                  Navigator.of(context, rootNavigator: true)
+                  .pop('dialog');
+                  setState(() {});
+                }, 
                 child: Text("Save"))
               ],
             ),
